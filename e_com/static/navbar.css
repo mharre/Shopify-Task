@@ -1,0 +1,158 @@
+.nav-item a {
+    color: #4e4039
+}
+
+.errorlist li {
+    color: #ad0000
+}
+
+.invalid label {
+    color: #d6000b;
+}
+  
+.invalid input,
+.invalid textarea {
+    border-color: #d6000b;
+    background-color: #ffe6e7;
+}
+
+#brand {
+    color: #7e5e60;
+}
+
+#footer-top {
+    background-color: #7e5e60;
+}
+
+.footer-copyright {
+    background-color: #fef8f3;
+}
+
+#footer-top i {
+    color: #f5f5dc
+}
+
+html, body {
+    height: 100%;
+    min-height: 100vh;
+    padding: 0;
+}
+
+.parent1 {
+    min-height: 85vh;
+}
+
+#update-wrapper {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+#password-wrapper {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.form-control:focus {
+    border-color: #d66534;
+    box-shadow: 0 0 0 0.2rem rgb(230, 77, 11, 0.25);
+}
+
+#update-button {
+    background-color: #d66534;
+    color:#fef8f5;
+    outline: none;
+}
+
+#update-button:hover,
+#update-button:active {
+    background-color: #ff986c;
+    border-color: #ff986c;
+}
+
+#update-button:focus,
+#update-button:active {
+    outline:#fef8f5;
+    box-shadow: 0 0 0 0.2rem rgb(230, 77, 11, 0.25);
+}
+
+#password-button {
+    background-color: #d66534;
+    color:#fef8f5;
+    outline: none;
+}
+
+#password-button:hover,
+#password-button:active {
+    background-color: #ff986c;
+    border-color: #ff986c;
+}
+
+#password-button:focus,
+#password-button:active {
+    outline:#fef8f5;
+    box-shadow: 0 0 0 0.2rem rgb(230, 77, 11, 0.25);
+}
+
+.text-color {
+    color: #7e5e60;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+    color: #fff;
+    background-color: #7e5e60;
+}
+
+#order-summary-wrapper {
+    background-color: #fef8f3;
+}
+
+#add-sub-btn {
+    color: #0096FF;
+}
+
+#continue-shopping-btn {
+    background-color: #0096FF;
+    color: white;
+}
+
+#continue-shopping-btn:hover,
+#continue-shopping-btn:active {
+    background-color: #0060a5;
+}
+
+#cart-badge {
+    background-color: #7e5e60;
+}
+
+#test3 {
+    background-color: #fef8f3;
+}
+
+#refund-wrapper {
+    background-color: #fef8f3;
+}
+
+#refund-form-wrapper {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+#refund-submit-btn {
+    background-color: #0096FF;
+    color:#fef8f5;
+}
+
+#refund-submit-btn:hover,
+#refund-submit-btn:active {
+    background-color: #0060a5;
+    border-color: #0060a5;
+}
+
+#refund-submit-btn:focus,
+#refund-submit-btn:active {
+    outline:#fef8f5;
+    box-shadow: 0 0 0 0.2rem rgba(0, 81, 255, 0.25);
+}

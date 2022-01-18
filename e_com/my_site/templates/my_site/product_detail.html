@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ product.name|title}}
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <img src="{{ product.image.url }}" class='img-fluid mx-auto d-block' alt="{{ product.name }}">
+    <div class="card my-3 shadow rounded">
+        <div class="card-header text-center">
+          <h3><strong>{{ product.name|title }}</strong></h3>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">History</h5>
+          <p class="card-text">{{product.history}}.</p>
+          <h5 class="card-title text-muted">Price: ${{product.price}}</h5>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Artist: {{product.artist}} </li>
+            <li class="list-group-item">Date of Creation: {{product.date_of_creation}} </li>
+            <li class="list-group-item">School of: {{product.school}} </li>
+          </ul>
+          <a href="{{ product.get_add_to_cart_url }}" class='btn btn-outline-primary'>
+            <i class='fas fa-shopping-cart ml-1'></i>
+            <span class="clearfix d-none d-sm-inline-block"> Add </span>
+        </a>
+    
+        <a href="{{ product.get_remove_from_cart_url }}" class='btn btn-outline-danger float-right'>
+            <i class='fas fa-shopping-cart ml-1'></i>
+            <span class="clearfix d-none d-sm-inline-block"> Remove </span>
+        </a>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        {% for review in reviews %}
+        <div class="col-sm-4">
+          <div class="card my-3">
+            <div class="card-header text-center" style='background-color: #ff4d00a6;'>
+              <h6><strong>Review By: {{ review.user|title }}</strong></h6>
+            </div>
+            <div class="card-body">
+              <p class="card-text"><small class="text-muted">{{review.date}}</small></p>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Rating: {{review.rating}} </li>
+                <li class="list-group-item"> {{review.comment}} </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+</div>
+{% endblock %}

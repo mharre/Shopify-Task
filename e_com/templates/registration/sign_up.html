@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'login-out.css' %}">
+{% endblock %}
+
+{% block title %}
+MHe-commerce | Sign Up
+{% endblock %}
+
+{% block content %}
+
+<section id="sign-up">
+<div class="container-fluid" id="wrapper">
+    <div class='parent container h-100 d-flex justify-content-center align-items-center'>
+        <div class="container w-50 py-3" id='login-wrapper'>
+            <h1 class='text-center'>Sign Up</h1>
+            <form method="POST">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="form-group {% if field.errors %}invalid{% endif %}">
+                {{ field.label_tag }}
+                {{ field }}
+                {{ field.help_text }}
+                {{ field.errors }}
+                </div>
+                {% endfor %}
+                <button id='signup-button' type="submit" class='btn'>Create Account</button>
+            </form>
+        </div>
+    </div>
+</div>
+</section>
+
+{% endblock %}

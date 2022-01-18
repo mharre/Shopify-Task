@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'my_site/my_orders.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid" id='myorders-wrapper'>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container text-center">
+        <h1 class="display-4">Your Orders</h1>
+        </div>
+    </div>
+    {% if object %}
+    <div class="row justify-content-center">
+        {% for order in object %}
+        {% for order_item in order.items.all %}
+        <div class="col-sm-4">
+            <div class="card my-3 shadow bg-rounded">
+            <img src="{{ order_item.item.image.url }}" class="card-img-top shadow bg-rounded" alt="{{ order_item.item }} ">
+            <div class="card-header text-center">
+                <h6><strong>{{ order_item.item.name }}</strong></h6>
+            </div>
+            <div class="card-body flex-column text-center">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Ordered On: {{ order.ordered_date }}</li>
+                    <li class="list-group-item">Price: ${{ order_item.item.price }}</li>
+                    <li class="list-group-item">Reference Code: {{ order.ref_code }}</li>
+                    <li class="list-group-item">Request Refund: <a href="{% url 'request_refund' %}" class='btn' id='refund-button'><i class="fas fa-random"></i></a></li>
+                  </ul>
+            </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% endfor %}
+    </div>
+    <div class="container text-center">
+        <button class="btn btn-sm" id='review'>Leave a review?</button>
+    </div>
+
+    <div class="container w-25 pb-5">
+        <div class="container-fluid" id="wrapper">
+            <form method="POST" id='form1'>
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="form-group px-3 my-3 {% if field.errors %}invalid{% endif %}">
+                {{ field.label_tag }}
+                {{ field }}
+                {{ field.help_text }}
+                {{ field.errors }}
+                </div>
+                {% endfor %}
+                <button type="submit" id='review-submit' class="btn ml-3">Submit</button>
+            </form>
+        </div>
+    </div>
+    {% else %}
+    <div class="container parent1 text-center" id='no-orders'>
+        <h1>You don't have any orders</h1>
+        <h3>Click <a href="{% url 'all_products' school='all' %}">here</a> to view our products!</h3>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script type='text/javascript'>
+$( document ).ready( function() {
+    $( "#review" ).click( function() {
+        $( "#form1" ).toggle(1000);
+    });
+});
+</script>
+{% endblock %}

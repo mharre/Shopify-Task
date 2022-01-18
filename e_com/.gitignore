@@ -1,0 +1,6 @@
+.venv
+inventory_images
+.vscode
+__pycache__/
+*.pyc
+/__pycache__
